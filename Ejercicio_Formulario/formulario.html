@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
     <link rel="stylesheet" href="formulario.css">
+    <link rel="stylesheet" href="botonFlip.css">
     <link rel="stylesheet" href="acceso.php">
 </head>
 
@@ -15,7 +16,6 @@
     <div class="container">
         <form id="contact" action="acceso.php" method="POST">
             <h3>FORMULARIO</h3>
-            <h4>Datos personales</h4>
             <fieldset>
                 <label for="email">Email</label>
                 <input placeholder="ejemplo@gmail.com" type="email" tabindex="1" name="email" required>
@@ -29,7 +29,8 @@
                 <input placeholder="" type="password" tabindex="3" name="contraseña" required>
             </fieldset>
             <fieldset>
-                <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                <button class="btn" name="submit" type="submit" id="contact-submit"
+                    data-submit="...Sending">Submit</button>
             </fieldset>
         </form>
     </div>

@@ -1,0 +1,27 @@
+.btn {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    background-color: #43ffc4;
+    font-size: 16px;
+    font-weight: 300;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 25px 80px;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 6px #00c27e;
+  }
+  
+  .btn:hover {
+    box-shadow: 0 4px #00c27e;
+    top: 2px;
+  }
+  
+  .btn:active {
+    box-shadow: none;
+    top: 6px;
+  }
