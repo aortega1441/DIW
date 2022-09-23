@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="formulario.css">
+    <link rel="stylesheet" href="botonFlip.css">
+    <title>Login</title>
+</head>
+<body>
+
+    <div class="container">
+        <form id="contact" action="login.php" method="POST">
+            <h3>Inicio de sesión</h3>
+            <br>
+            <fieldset>
+                <label for="email">Email:</label>
+                <input placeholder="ejemplo@gmail.com" type="email" tabindex="1" name="loginCorreo" required>
+            </fieldset>
+            <fieldset>
+                <label for="contraseña">Contraseña:</label>
+                <input placeholder="**********" type="password" tabindex="2" name="loginContraseña" required>
+            </fieldset>
+            <fieldset>
+                <button class="btn" name="submit" type="submit" id="contact-submit"
+                    data-submit="...Sending">Login</button>
+            </fieldset>
+            <fieldset>
+                <a href="index.html" class="login">Registro</a>
+            </fieldset>
+
+        </form>
+
+    </div>
+    
+    
+</body>
+</html>
