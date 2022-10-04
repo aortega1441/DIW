@@ -1,5 +1,5 @@
 <?php
- 
+  
 include("database.php");
 
 $sql = "SELECT * FROM usuarios WHERE Usuario_email = '{$_POST['loginCorreo']}' AND Usuario_clave = '{$_POST['loginContraseña']}'";
@@ -16,6 +16,9 @@ $sql = "SELECT * FROM usuarios WHERE Usuario_email = '{$_POST['loginCorreo']}' A
     header("Location: bienvenido.html");
 
   } else {    
-    echo "Usuario o contraseña incorrectos";
-  
+       echo "<script>
+                alert('Usuario o contraseña incorrecta');
+                window.location= 'login.html'
+    </script>";
+    
 }

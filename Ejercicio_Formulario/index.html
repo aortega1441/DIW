@@ -8,7 +8,7 @@
     <title>Formulario</title>
     <link rel="stylesheet" href="formulario.css">
     <link rel="stylesheet" href="botonFlip.css">
-    <link rel="stylesheet" href="acceso.php">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
             </fieldset>
             <fieldset>
                 <label for="apellido2">Segundo apellido:</label>
-                <input placeholder="Segundo apellido" type="text" tabindex="1" name="apelliod2" required>
+                <input placeholder="Segundo apellido" type="text" tabindex="1" name="apellido2" required>
             </fieldset>
             <fieldset>
                 <label for="nick">Nick:</label>
@@ -35,27 +35,77 @@
             </fieldset>
             <fieldset>
                 <label for="email">Email:</label>
-                <input placeholder="ejemplo@gmail.com" type="email" tabindex="1" name="email" required>
+                <input placeholder="ejemplo@gmail.com" type="email" tabindex="1" name="email" required id="email">
+                <div id="resul">
+
+                </div>
             </fieldset>
             <fieldset>
                 <label for="contraseña">Contraseña:</label>
-                <input placeholder="**********" type="password" tabindex="2" name="contraseña" required>
+                <input placeholder="**********" type="password" tabindex="2" name="contraseña" required class="">
             </fieldset>
             <fieldset>
                 <label for="contraseña">Repite contraseña:</label>
                 <input placeholder="**********" type="password" tabindex="3" name="contraseña" required>
             </fieldset>
             <fieldset>
+                <input type="checkbox" required> Aceptar <a href="">términos</a> y <a href="">condiciones</a>.
+                <br>
+                <input type="checkbox"> Suscríbete a la newsletter.
+            </fieldset>
+            <fieldset>
                 <button class="btn" name="submit" type="submit" id="contact-submit"
                     data-submit="...Sending">Registrar</button>
             </fieldset>
             <fieldset>
-                <a href="login.html" class="login">Iniciar sesión</a>
+                <a href="login.html" class="login">Inicio de sesión</a>
             </fieldset>
 
         </form>
 
     </div>
+
+    <script>
+
+        var password = document.getElementById('pass');
+
+    </script>
+
+    <!-- Comprobación campos -->
+    <script>
+        $(document).ready(function () {
+console.log("hla");
+            $('#email').on('blur', function () {
+
+                var email = $(this).val();
+                var dataString = 'email=' + email;
+
+                $.ajax({
+                    type: "POST",
+                    url: "comprueba_email.php",
+                    data: dataString,
+                    success: function (data) {
+                        $('#resul').fadeIn(1000).html(data);
+                    }
+                });
+            });
+        });
+    </script>
+
+
+<!--
+
+    -Hash contraseña
+    -Mandar email verificación
+    -Bloqueo de usuario
+    -Upload de archivo
+    -Devolver resultado a un value de input???
+    -Ventana modal???
+    -Implode???
+
+-->
+
+
 
 </body>
 

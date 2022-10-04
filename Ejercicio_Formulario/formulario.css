@@ -1,5 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 
+@font-face {
+    font-family: myFirstFont;
+    src: url(sansationLight/SansationLight.woff);
+  }
+
 * {
     margin: 0;
     padding: 0;
@@ -13,6 +18,11 @@
 
 }
 
+.alert-danger{
+    color:red;
+    font-weight:bold;
+}
+
 body {
     font-family: "Roboto", Helvetica, Arial, sans-serif;
     font-weight: 100;
@@ -20,7 +30,11 @@ body {
     line-height: 30px;
     color: #777;
     background: #ffffff;
-    background-image: url("fondo.png");
+    background-image: url("imagen.png");
+}
+
+label {
+    font-size: 15px;
 }
 
 .login {
@@ -36,10 +50,10 @@ body {
 }
 
 .login:hover {
-    background: #008929;
-    -webkit-transition: background 0.3s ease-in-out;
-    -moz-transition: background 0.3s ease-in-out;
-    transition: background-color 0.3s ease-in-out;
+    background: #cf0061;
+    -webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    transition: background-color 0.5s ease-in-out;
 }
 
 .container {
@@ -56,28 +70,20 @@ body {
 }
 
 #contact {
-    background: #d3e4ff;
+    background: white;
     padding: 25px;
-    margin: 75px 0;
-    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.5), 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+    margin: 40px 0;
+    box-shadow: 0 0 30px 0 white, 0 5px 5px 0 white;
     border-radius: 10px;
 }
 
 #contact h3 {
-    color: #0a0096;
+    color: #cf0061;
     display: block;
     font-size: 30px;
     font-weight: bod;
-    margin-bottom: 10px;
     text-align: center;
-    letter-spacing: 3px;
-}
-
-#contact h4 {
-    margin: 5px 0 15px;
-    display: block;
-    font-size: 13px;
-    font-weight: 400;
+    letter-spacing: 2px;
 }
 
 fieldset {
@@ -97,7 +103,7 @@ fieldset {
     width: 100%;
     border: 1px solid rgb(166, 166, 166);
     background: #FFF;
-    margin: 0 0 5px;
+    margin: 0 0 0px;
     padding: 10px;
 }
 
@@ -108,8 +114,8 @@ fieldset {
     -webkit-transition: border-color 0.3s ease-in-out;
     -moz-transition: border-color 0.3s ease-in-out;
     transition: border-color 0.3s ease-in-out;
-    border: 1.5px solid blue;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border: 1px solid #cf0061;
+    box-shadow: 0 0 5px 0 rgb(149, 149, 255), 0 2px 2px 0 rgb(149, 149, 255);
 }
 
 
@@ -127,10 +133,10 @@ fieldset {
 }
 
 #contact button[type="submit"]:hover {
-    background: #008929;
-    -webkit-transition: background 0.3s ease-in-out;
-    -moz-transition: background 0.3s ease-in-out;
-    transition: background-color 0.3s ease-in-out;
+    background: #cf0061;
+    -webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    transition: background-color 0.5s ease-in-out;
 }
 
 #contact button[type="submit"]:active {
@@ -139,11 +145,13 @@ fieldset {
 
 #contact input:focus {
     outline: 0;
-    border: 2px solid rgb(13, 0, 255);
+    border: 1px solid #006ecf;
+    box-shadow: 0 0 5px 0 rgb(149, 149, 255), 0 2px 2px 0 rgb(149, 149, 255);
+
 }
 
 ::-webkit-input-placeholder {
-    color: #888;
+    color: rgb(195, 195, 195);
 }
 
 :-moz-placeholder {
