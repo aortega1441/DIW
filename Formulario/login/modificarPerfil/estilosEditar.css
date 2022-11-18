@@ -1,0 +1,48 @@
+.img-user {
+
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  height: 210px;
+  margin-top: 10px;
+  margin-left: 35%;
+  object-fit: cover;
+  border-radius: 50%;
+
+}
+
+.imgRedonda {
+  width: 190px;
+  height: 190px;
+  border-radius: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#subidaArchivo {
+
+  opacity: 0%;
+  width: 40px;
+  height: 40px;
+  z-index: 20;
+  margin: auto;
+
+}
+
+#imagen {
+
+  margin-top: -3em;
+  position: absolute;
+  margin-left: 11.85%;
+  background-color: #610027;
+  padding: 5px;
+  border-radius: 35%;
+  box-shadow: 0 0 30px 0 white, 0 0 5px 0 white
+
+}
+
+#divIMG{
+  margin: auto;
+  margin-top: -4em;
+  margin-left: 0.5em;
+}
