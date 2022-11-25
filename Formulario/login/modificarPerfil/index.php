@@ -37,53 +37,43 @@ session_start();
 <body style="background-color: #154c79; color: white; background-image: url(../../fondo3.png);">
 
 
-  <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #610027; border-bottom: 2px solid black;">
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #610027; border-bottom: 2px solid black;">
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+  <span class="navbar-toggler-icon"></span>
+</button>
 
-    <?php
+<?php
 
-    if ($_SESSION["Usuario_perfil"] == "ADMINISTRADOR") {
-    ?>
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <a class="navbar-brand" href="../administrador/">Inicio</a>
-        <div class="dropdown">
-          <button type="button" class="btn btn-primary dropdown-toggle" style="color: black;background-color: #fff888;" data-toggle="dropdown">
-            Opciones de Administrador
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="../administrador/agregar/index.php">Agregar Usuario</a>
-            <a class="dropdown-item" href="../administrador/borrar/index.php">Borrar Usuario</a>
-            <a class="dropdown-item" href="../administrador/buscar/index.php">Buscar Usuario</a>
-          </div>
-        </div>
-      </div>
+if ($_SESSION["Usuario_perfil"] == "ADMINISTRADOR") {
+?>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <a id="inicio" class="navbar-brand" href="../administrador/"><img src="../../imagenes/inicio.png" alt="imagen" width="30px" height="40px">&nbsp;&nbsp;Inicio</a>
 
 
-    <?php
-    } else {
-    ?>
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <a class="navbar-brand" href="../cliente/">Inicio</a>
-      </div>
-    <?php
-    }
-    ?>
 
-    <div id="login" class="dropdown">
-      <button type="button" class="btn btn-primary dropdown-toggle" style="color: black;background-color: #fff888;" data-toggle="dropdown">
-        <?php echo $_SESSION["correo"] ?>
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="./buscarDetalles.php">Editar Perfil</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="../borrado.php">Login Out</a>
-      </div>
-    </div>
-    </div>
-  </nav>
+    <a class="btn" href="../administrador/agregar/" style="color: black;background-color: #fff888;"><img src="../../imagenes/agregar.png" alt="" width="30px" height="30px" r>&nbsp;&nbsp;Agregar Usuario</a>&nbsp;
+    <a class="btn" href="../administrador/borrar/" style="color: black;background-color: #fff888;"><img src="../../imagenes/borrar.png" alt="" width="30px" height="30px" r>&nbsp;&nbsp;Borrar Usuario</a>&nbsp;
+    <a class="btn" href="../administrador/buscar/" style="color: black;background-color: #fff888;"><img src="../../imagenes/buscar.png" alt="" width="30px" height="30px" r>&nbsp;&nbsp;Buscar Usuario</a>
+
+
+  </div>
+
+
+<?php
+} else {
+?>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <a class="navbar-brand" href="../cliente/"><img src="../../inicio.png" alt="imagen" width="20px" height="30px">&nbsp;&nbsp;Inicio</a>
+  </div>
+<?php
+}
+?>
+<a class="btn" style="color: black;background-color: #fff888;" href="../modificarPerfil/buscarDetalles.php"><img src="../../imagenes/editar.png" alt="" width="30px" height="30px" r>&nbsp;&nbsp;Editar Perfil</a>&nbsp;
+<a class="btn" style="color: black;background-color: #fff888;" href="../borrado.php"><img src="../../imagenes/salir.png" alt="" width="30px" height="30px" r>&nbsp;&nbsp;Login Out</a>
+
+
+</nav>
 
   <div class="text-center" style="margin: 2em">
 
@@ -132,7 +122,60 @@ session_start();
       <label for="poblacion" class="form-label">Localidad</label>
       <input name="poblacion" type="text" class="form-control" value="<?php echo $_SESSION['Usuario_poblacion'] ?>"></input>
       <label for="provincia" class="form-label">Provincia</label>
-      <input name="provincia" type="text" class="form-control" value="<?php echo $_SESSION['Usuario_provincia'] ?>"></input>
+      <select name="provincia" id="provincia" class="custom-select">
+        <option value="Araba/Álava">Araba/Álava</option>
+        <option value="Albacete">Albacete</option>
+        <option value="Alicante/Alacant">Alicante/Alacant</option>
+        <option value="Almería">Almería</option>
+        <option value="Ávila">Ávila</option>
+        <option value="Badajoz">Badajoz</option>
+        <option value="Balears, Illes">Balears, Illes</option>
+        <option value="Barcelona">Barcelona</option>
+        <option value="Burgos">Burgos</option>
+        <option value="Cáceres">Cáceres</option>
+        <option value="Cádiz">Cádiz</option>
+        <option value="Castellón/Castelló">Castellón/Castelló</option>
+        <option value="Ciudad Real">Ciudad Real</option>
+        <option value="Córdoba">Córdoba</option>
+        <option value="Coruña, A">Coruña, A</option>
+        <option value="Cuenca">Cuenca</option>
+        <option value="Girona">Girona</option>
+        <option value="Granada">Granada</option>
+        <option value="Guadalajara">Guadalajara</option>
+        <option value="Gipuzkoa">Gipuzkoa</option>
+        <option value="Huelva">Huelva</option>
+        <option value="Huesca">Huesca</option>
+        <option value="Jaén">Jaén</option>
+        <option value="León">León</option>
+        <option value="Lleida">Lleida</option>
+        <option value="Rioja, La">Rioja, La</option>
+        <option value="Lugo">Lugo</option>
+        <option value="Madrid">Madrid</option>
+        <option value="Málaga">Málaga</option>
+        <option value="Murcia">Murcia</option>
+        <option value="Navarra">Navarra</option>
+        <option value="Ourense">Ourense</option>
+        <option value="Asturias">Asturias</option>
+        <option value="Palencia">Palencia</option>
+        <option value="Palmas, Las">Palmas, Las</option>
+        <option value="Pontevedra">Pontevedra</option>
+        <option value="Salamanca">Salamanca</option>
+        <option value="Santa Cruz de Tenerife">Santa Cruz de Tenerife</option>
+        <option value="Cantabria">Cantabria</option>
+        <option value="Segovia">Segovia</option>
+        <option value="Sevilla">Sevilla</option>
+        <option value="Soria">Soria</option>
+        <option value="Tarragona">Tarragona</option>
+        <option value="Teruel">Teruel</option>
+        <option value="Toledo">Toledo</option>
+        <option value="Valencia/València">Valencia/València</option>
+        <option value="Valladolid">Valladolid</option>
+        <option value="Bizkaia">Bizkaia</option>
+        <option value="Zamora">Zamora</option>
+        <option value="Zaragoza">Zaragoza</option>
+        <option value="Ceuta">Ceuta</option>
+        <option value="Melilla">Melilla</option>
+      </select><br>
       <label for="dni" class="form-label">DNI</label>
       <input name="dni" type="text" class="form-control" value="<?php echo $_SESSION['Usuario_dni'] ?>"></input>
       <label for="numeroTelefono" class="form-label">Número de Teléfono</label>

@@ -102,53 +102,38 @@ if ($_SESSION["seleccion"] == "borrarUsuarios") {
 <body id="bodytabla" style="color: white;">
 
 
-  <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #610027; border-bottom: 2px solid black;">
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #610027; border-bottom: 2px solid black;">
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+  <span class="navbar-toggler-icon"></span>
+</button>
 
-    <?php
+<?php
 
-    if ($_SESSION["Usuario_perfil"] == "ADMINISTRADOR") {
-    ?>
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <a class="navbar-brand" href="../../../administrador/">Inicio</a>
+if ($_SESSION["Usuario_perfil"] == "ADMINISTRADOR") {
+?>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <a class="navbar-brand" href="../../../administrador/"><img src="../../../../imagenes/inicio.png" alt="imagen" width="30px" height="40px">&nbsp;&nbsp;Inicio</a>
 
-        <div class="dropdown">
-          <button type="button" class="btn btn-primary dropdown-toggle" style="color: black;background-color: #fff888;" data-toggle="dropdown">
-            Opciones de Administrador
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="../../agregar/">Agregar Usuario</a>
-            <a class="dropdown-item" href="../../borrar/">Borrar Usuario</a>
-            <a class="dropdown-item" href="../../buscar/">Buscar Usuario</a>
-          </div>
-        </div>
-      </div>
-    <?php
-    } else {
-    ?>
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <a class="navbar-brand" href="../../../cliente/">Inicio</a>
-      </div>
-    <?php
-    }
+    <a class="btn" href="../../agregar/" style="color: black;background-color: #fff888;"><img src="../../../../imagenes/agregar.png" alt="" width="30px" height="30px" r>&nbsp;&nbsp;Agregar Usuario</a>&nbsp;
+    <a class="btn" href="../../borrar/" style="color: black;background-color: #fff888;"><img src="../../../../imagenes/borrar.png" alt="" width="30px" height="30px" r>&nbsp;&nbsp;Borrar Usuario</a>&nbsp;
+    <a class="btn" href="../../buscar/" style="color: black;background-color: #fff888;"><img src="../../../../imagenes/buscar.png" alt="" width="30px" height="30px" r>&nbsp;&nbsp;Buscar Usuario</a>
+  </div>
+<?php
+} else {
+?>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <a class="navbar-brand" href="../../../cliente/"><img src="../../../../imagenes/inicio.png" alt="imagen" width="30px" height="40px">&nbsp;&nbsp;Inicio</a>
+  </div>
+<?php
+}
 
-    ?>
+?>
 
-    <div id="login" class="dropdown">
-      <button type="button" class="btn btn-primary dropdown-toggle" style="color: black;background-color: #fff888;" data-toggle="dropdown">
-        <?php echo $_SESSION["correo"] ?>
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="../../../modificarPerfil/buscarDetalles.php">Editar Perfil</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="../../../borrado.php">Login Out</a>
-      </div>
-    </div>
-    </div>
-  </nav>
+<a class="btn" style="color: black;background-color: #fff888;" href="../../../modificarPerfil/buscarDetalles.php"><img src="../../../../imagenes/editar.png" alt="" width="30px" height="30px" r>&nbsp;&nbsp;Editar Perfil</a>&nbsp;
+<a class="btn" style="color: black;background-color: #fff888;" href="../../../borrado.php"><img src="../../../../imagenes/salir.png" alt="" width="30px" height="30px" r>&nbsp;&nbsp;Login Out</a>
+</div>
+</nav>
 
   <div class="jumbotron text-center" style="color: white; background: transparent;">
     <h1>TABLA DE USUARIOS</h1>
@@ -171,12 +156,17 @@ if ($_SESSION["seleccion"] == "borrarUsuarios") {
             <th>Nombre</th>
             <th>Primer Apellido</th>
             <th>Segundo Apellido</th>
+            <th>Fecha de alta</th>
             <th>Usuario_email</th>
             <th>Usuario_domicilio</th>
+            <th>Provincia</th>
             <th>Usuario_nif</th>
             <th>Usuario_numero_telefono</th>
             <th>Usuario_fecha_nacimiento</th>
             <th>Usuario_perfil</th>
+            <th>Bloqueo</th>
+
+            <th>Última conexión</th>
           </tr>
         </thead>
         <tbody>
@@ -188,12 +178,21 @@ if ($_SESSION["seleccion"] == "borrarUsuarios") {
             echo "<td>" . $reg['Usuario_nombre'] . "</td>";
             echo "<td>" . $reg['Usuario_apellido1'] . "</td>";
             echo "<td>" . $reg['Usuario_apellido2'] . "</td>";
+            echo "<td>" . $reg['Usuario_fecha_alta'] . "</td>";
             echo "<td>" . $reg['Usuario_email'] . "</td>";
             echo "<td>" . $reg['Usuario_domicilio'] . "</td>";
+            echo "<td>" . $reg['Usuario_provincia'] . "</td>";
             echo "<td>" . $reg['Usuario_nif'] . "</td>";
             echo "<td>" . $reg['Usuario_numero_telefono'] . "</td>";
             echo "<td>" . $reg['Usuario_fecha_nacimiento'] . "</td>";
             echo "<td>" . $reg['Usuario_perfil'] . "</td>";
+            if ($reg['Usuario_bloqueado'] == 0) {
+              echo "<td style='background-color: lightgreen; color: black '>Desbloqueado</td>";
+            } else {
+              echo "<td style='background-color: crimson;'>Bloqueado</td>";
+            }
+
+            echo "<td>" . $reg['Usuario_fecha_ultima_conexion'] . "</td>";
             echo "</tr>";
           }
           ?>
@@ -218,12 +217,17 @@ if ($_SESSION["seleccion"] == "borrarUsuarios") {
               <th>Nombre</th>
               <th>Primer Apellido</th>
               <th>Segundo Apellido</th>
+              <th>Fecha de alta</th>
               <th>Usuario_email</th>
               <th>Usuario_domicilio</th>
+              <th>Provincia</th>
               <th>Usuario_nif</th>
               <th>Usuario_numero_telefono</th>
               <th>Usuario_fecha_nacimiento</th>
               <th>Usuario_perfil</th>
+              <th>Bloqueo</th>
+
+              <th>Última conexión</th>
             </tr>
           </thead>
           <tbody>
@@ -235,12 +239,21 @@ if ($_SESSION["seleccion"] == "borrarUsuarios") {
               echo "<td>" . $reg['Usuario_nombre'] . "</td>";
               echo "<td>" . $reg['Usuario_apellido1'] . "</td>";
               echo "<td>" . $reg['Usuario_apellido2'] . "</td>";
+              echo "<td>" . $reg['Usuario_fecha_alta'] . "</td>";
               echo "<td>" . $reg['Usuario_email'] . "</td>";
               echo "<td>" . $reg['Usuario_domicilio'] . "</td>";
+              echo "<td>" . $reg['Usuario_provincia'] . "</td>";
               echo "<td>" . $reg['Usuario_nif'] . "</td>";
               echo "<td>" . $reg['Usuario_numero_telefono'] . "</td>";
               echo "<td>" . $reg['Usuario_fecha_nacimiento'] . "</td>";
               echo "<td>" . $reg['Usuario_perfil'] . "</td>";
+              if ($reg['Usuario_bloqueado'] == 0) {
+                echo "<td style='background-color: lightgreen; color: black '>Desbloqueado</td>";
+              } else {
+                echo "<td style='background-color: crimson;'>Bloqueado</td>";
+              }
+
+              echo "<td>" . $reg['Usuario_fecha_ultima_conexion'] . "</td>";
               echo "</tr>";
             }
             ?>
@@ -265,12 +278,17 @@ if ($_SESSION["seleccion"] == "borrarUsuarios") {
                 <th>Nombre</th>
                 <th>Primer Apellido</th>
                 <th>Segundo Apellido</th>
+                <th>Fecha de alta</th>
                 <th>Usuario_email</th>
                 <th>Usuario_domicilio</th>
+                <th>Provincia</th>
                 <th>Usuario_nif</th>
                 <th>Usuario_numero_telefono</th>
                 <th>Usuario_fecha_nacimiento</th>
                 <th>Usuario_perfil</th>
+                <th>Bloqueo</th>
+
+                <th>Última conexión</th>
               </tr>
             </thead>
             <tbody>
@@ -282,12 +300,20 @@ if ($_SESSION["seleccion"] == "borrarUsuarios") {
                 echo "<td>" . $reg['Usuario_nombre'] . "</td>";
                 echo "<td>" . $reg['Usuario_apellido1'] . "</td>";
                 echo "<td>" . $reg['Usuario_apellido2'] . "</td>";
+                echo "<td>" . $reg['Usuario_fecha_alta'] . "</td>";
                 echo "<td>" . $reg['Usuario_email'] . "</td>";
                 echo "<td>" . $reg['Usuario_domicilio'] . "</td>";
+                echo "<td>" . $reg['Usuario_provincia'] . "</td>";
                 echo "<td>" . $reg['Usuario_nif'] . "</td>";
                 echo "<td>" . $reg['Usuario_numero_telefono'] . "</td>";
                 echo "<td>" . $reg['Usuario_fecha_nacimiento'] . "</td>";
                 echo "<td>" . $reg['Usuario_perfil'] . "</td>";
+                if ($reg['Usuario_bloqueado'] == 0) {
+                  echo "<td style='background-color: lightgreen; color: black '>Desbloqueado</td>";
+                } else {
+                  echo "<td style='background-color: crimson;'>Bloqueado</td>";
+                }
+                echo "<td>" . $reg['Usuario_fecha_ultima_conexion'] . "</td>";
                 echo "</tr>";
               }
               ?>

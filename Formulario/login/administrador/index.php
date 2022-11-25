@@ -86,17 +86,15 @@ if (!is_null($_SESSION["correo"])) {
       if ($_SESSION["Usuario_perfil"] == "ADMINISTRADOR") {
       ?>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <a class="navbar-brand" href="../administrador/">Inicio</a>
-          <div class="dropdown">
-            <button type="button" class="btn btn-primary dropdown-toggle" style="color: black;background-color: #fff888;" data-toggle="dropdown">
-              Opciones de Administrador
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="./agregar/">Agregar Usuario</a>
-              <a class="dropdown-item" href="./borrar/">Borrar Usuario</a>
-              <a class="dropdown-item" href="./buscar/">Buscar Usuario</a>
-            </div>
-          </div>
+          <a id="inicio" class="navbar-brand" href="../administrador/"><img src="../../imagenes/inicio.png" alt="imagen" width="30px" height="40px">&nbsp;&nbsp;Inicio</a>
+
+
+
+          <a class="btn" href="./agregar/" style="color: black;background-color: #fff888;"><img src="../../imagenes/agregar.png" alt="" width="30px" height="30px" r>&nbsp;&nbsp;Agregar Usuario</a>&nbsp;
+          <a class="btn" href="./borrar/" style="color: black;background-color: #fff888;"><img src="../../imagenes/borrar.png" alt="" width="30px" height="30px" r>&nbsp;&nbsp;Borrar Usuario</a>&nbsp;
+          <a class="btn" href="./buscar/" style="color: black;background-color: #fff888;"><img src="../../imagenes/buscar.png" alt="" width="30px" height="30px" r>&nbsp;&nbsp;Buscar Usuario</a>
+
+
         </div>
 
 
@@ -104,22 +102,14 @@ if (!is_null($_SESSION["correo"])) {
       } else {
       ?>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <a class="navbar-brand" href="../cliente/">Inicio</a>
+          <a class="navbar-brand" href="../cliente/"><img src="../../inicio.png" alt="imagen" width="20px" height="30px">&nbsp;&nbsp;Inicio</a>
         </div>
       <?php
       }
       ?>
-      <div id="login" class="dropdown">
-        <button type="button" class="btn btn-primary dropdown-toggle" style="color: black;background-color: #fff888;" data-toggle="dropdown">
-          <?php echo $_SESSION["correo"] ?>
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="../modificarPerfil/buscarDetalles.php">Editar Perfil</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="../borrado.php">Login Out</a>
-        </div>
-      </div>
-      </div>
+      <a class="btn" style="color: black;background-color: #fff888;" href="../modificarPerfil/buscarDetalles.php"><img src="../../imagenes/editar.png" alt="" width="30px" height="30px" r>&nbsp;&nbsp;Editar Perfil</a>&nbsp;
+      <a class="btn" style="color: black;background-color: #fff888;" href="../borrado.php"><img src="../../imagenes/salir.png" alt="" width="30px" height="30px" r>&nbsp;&nbsp;Login Out</a>
+
 
     </nav>
 
